@@ -1,0 +1,437 @@
+/* =========================================
+   Custom Properties (Variables)
+   ========================================= */
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #d69e3d;
+    --color-primary-dark: #966f2c;
+    --color-bg: #f3f0e9;
+    
+    --font-heading: 'Lato', sans-serif;
+    --font-body: 'Karla', sans-serif;
+    
+    --transition: 0.3s ease-in-out;
+}
+
+/* =========================================
+   Base Styles (Mobile First)
+   ========================================= */
+body {
+    background-color: var(--color-bg);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding { padding: 4rem 0; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-gold { color: var(--color-primary); }
+.text-white { color: var(--color-white); }
+
+/* Typography */
+h1, h2, h3, .nav-links, .btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+h1 { font-size: 2rem; margin-bottom: 1rem; }
+h2 { font-size: 1.75rem; margin-bottom: 2.5rem; text-transform: uppercase; }
+h3 { font-size: 1.375rem; margin-bottom: 1rem; text-transform: uppercase; }
+p { margin-bottom: 1rem; }
+
+.subtitle {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   Accessibility & Animations
+   ========================================= */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: top var(--transition);
+}
+
+.skip-link:focus { top: 0; }
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    animation: fadeUp 1s ease-out forwards;
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    transition: all var(--transition);
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.btn-black {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.btn-transparent {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+}
+
+.btn:hover, .btn:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-white:hover { background-color: var(--color-bg); }
+.btn-black:hover { background-color: #333; }
+.btn-transparent:hover { background-color: var(--color-white); color: var(--color-black); }
+
+/* =========================================
+   Header
+   ========================================= */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 2rem 0;
+    color: var(--color-white);
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 220px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.875rem;
+}
+
+/* Complex Selector 1: Child Combinator + Pseudo-class */
+.nav-links > li > a {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links > li > a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 2px;
+    background-color: var(--color-primary);
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    padding: 8rem 0 4rem 0;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   Welcome Grid Section
+   ========================================= */
+.welcome-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.welcome-small-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+.grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================================
+   What We Offer (Features)
+   ========================================= */
+.feature-icon {
+    height: 80px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.feature-card {
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================================
+   Split CTA
+   ========================================= */
+.split-cta {
+    display: flex;
+    flex-direction: column;
+}
+
+.cta-block {
+    padding: 8rem 1rem;
+    color: var(--color-white);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* Overlay to make text readable */
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-cta { background-image: url('../images/coffee-shop.jpeg'); }
+.locations-cta { background-image: url('../images/locations-bg.jpeg'); }
+
+/* =========================================
+   About Us
+   ========================================= */
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Complex Selector 2: Adjacent Sibling */
+.about-text p + p {
+    margin-top: 1.5rem;
+}
+
+/* =========================================
+   Testimonials
+   ========================================= */
+.testimonials { background-color: var(--color-black); }
+
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.review-card {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 2.5rem 2rem;
+}
+
+.review-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 80%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.review-content {
+    position: relative;
+    z-index: 2;
+    color: var(--color-white);
+    font-size: 0.95rem;
+}
+
+.card-1 { background-image: url('../images/testimonial-1.jpeg'); }
+.card-2 { background-image: url('../images/testimonial-2.jpeg'); }
+.card-3 { background-image: url('../images/testimonial-3.jpeg'); }
+
+.reviewer {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.site-footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Complex Selector 3: Descendant + Pseudo-element */
+.site-footer .wrapper::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.2);
+    margin-bottom: 2rem;
+}
+
+/* =========================================
+   Media Queries (Tablet: >= 768px)
+   ========================================= */
+@media screen and (min-width: 768px) {
+    /* Typescale */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.375rem; }
+    h3 { font-size: 1.75rem; }
+
+    /* Header: Align left/right for tablet screens! */
+    .header-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Keeps that nice subtle line */
+        padding-bottom: 1.5rem;
+    }
+
+    /* Welcome Grid: Side by side */
+    .welcome-grid { flex-direction: row; }
+    .welcome-large, .welcome-small-grid { flex: 1; }
+
+    /* Features Grid: 2 items top row, 1 item centered bottom row */
+    /* Updated with the safe math formula! */
+    .feature-card { width: calc((100% - 2.5rem) / 2); }
+
+    /* Testimonials Grid: 2 items top row, 1 item centered bottom row */
+    /* Updated with the safe math formula! */
+    .review-card { width: calc((100% - 2rem) / 2); }
+}
+
+/* =========================================
+   Media Queries (Desktop: >= 1024px)
+   ========================================= */
+@media screen and (min-width: 1024px) {
+    /* Typescale */
+    h1 { font-size: 3.875rem; }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2rem; }
+}
+    /* Header: Align left/right */
+    /* Header: Align left/right and add the bottom line */
+    .header-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Adds the subtle white line */
+        padding-bottom: 1.5rem; /* Gives space between the text and the line */
+    }
+    /* Features Grid: 3 columns */
+    .feature-card { width: calc((100% - 5rem) / 3); }
+
+    /* Split CTA: Side by side */
+    .split-cta { flex-direction: row; }
+    .cta-block { flex: 1; }
+
+    /* About Us: Side by side aligned center */
+    .about-grid {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+    .about-img-container, .about-text { flex: 1; }
+
+   /* Testimonials Grid: 3 columns */
+.review-card { width: calc((100% - 4rem) / 3); }
