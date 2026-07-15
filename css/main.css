@@ -258,6 +258,7 @@ p { margin-bottom: 1rem; }
 .cta-block {
     padding: 8rem 1rem;
     color: var(--color-white);
+    background-repeat: no-repeat; /* Added this line to fix tiling */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -279,7 +280,7 @@ p { margin-bottom: 1rem; }
 }
 
 .menu-cta { background-image: url('../images/coffee-shop.jpeg'); }
-.locations-cta { background-image: url('../images/locations-bg.jpeg'); }
+.locations-cta { background-image: url('../images/coffee-shop.jpeg'); }
 
 /* =========================================
    About Us
@@ -408,8 +409,7 @@ p { margin-bottom: 1rem; }
     h1 { font-size: 3.875rem; }
     h2 { font-size: 3rem; }
     h3 { font-size: 2rem; }
-}
-    /* Header: Align left/right */
+
     /* Header: Align left/right and add the bottom line */
     .header-wrapper {
         flex-direction: row;
@@ -418,6 +418,7 @@ p { margin-bottom: 1rem; }
         border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Adds the subtle white line */
         padding-bottom: 1.5rem; /* Gives space between the text and the line */
     }
+    
     /* Features Grid: 3 columns */
     .feature-card { width: calc((100% - 5rem) / 3); }
 
@@ -433,5 +434,6 @@ p { margin-bottom: 1rem; }
     }
     .about-img-container, .about-text { flex: 1; }
 
-   /* Testimonials Grid: 3 columns */
-.review-card { width: calc((100% - 4rem) / 3); }
+    /* Testimonials Grid: 3 columns */
+    .review-card { width: calc((100% - 4rem) / 3); }
+}
